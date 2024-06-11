@@ -8,7 +8,7 @@ describe("Login user", () => {
 
       cy.get('input[type="submit"]').click();
 
-      cy.get('p[id="message"]').should("contain", "Login Successful");
+      cy.url().should("include", "/profile");
     });
   });
 });

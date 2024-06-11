@@ -6,6 +6,8 @@ fetch("/user")
       userId = data.id;
       document.getElementById("userId").innerText = data.id;
       document.getElementById("username").innerText = data.username;
+    } else {
+      window.location.href = "/login";
     }
   });
 

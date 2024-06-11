@@ -16,6 +16,10 @@ document?.getElementById("loginForm")?.addEventListener("submit", function (even
   })
     .then((res) => res.json())
     .then((data) => {
-      document.getElementById("message").innerText = data.message;
+      if (data.success) {
+        window.location.href = "/profile";
+      } else {
+        document.getElementById("message").innerText = data.message;
+      }
     });
 });

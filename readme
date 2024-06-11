@@ -1,0 +1,13 @@
+En simpel express.js applikation där man kan registrera sig och logga in (bara en person kan vara inloggad i taget).
+När man loggar in blir man skickad till profil sidan där man kan ändra användarnamn
+
+Applikationen är gjord med TypeScript på backended och tester, men html+javascript på frontend.
+
+Att få Cypress och Jest att fungera med TypeScript både i runtime och i VSCode var en utmaning.
+Jag följde dokumentation från båda biblioteken för att få det att fungera. Testerna till databas är mockade med axios.
+I databas funktionerna så kollar den om testmiljön är 'test' och då mockas axios, men om inte så modifieras
+user objektet så att det kan testas av cypress.
+
+Testerna körs i github actions på varje push där workflowet använder
+npm för att köra Jest testerna och cypress-io/github-action@v6 för att
+köra Cypress testerna vilket automatiskt startar applikationen och kör testerna.
